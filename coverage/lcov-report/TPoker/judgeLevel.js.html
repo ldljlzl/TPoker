@@ -1,0 +1,590 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for TPoker\judgeLevel.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">TPoker/</a> judgeLevel.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">35.14% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>26/74</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">33.33% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>12/36</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">20% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>3/15</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">37.31% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>25/67</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&nbsp;
+const judgeFunc=require('./judge')
+&nbsp;
+let judgeSuit=judgeFunc.judgeSuit
+let judgeSort=judgeFunc.judgeSort
+let judgeFour=judgeFunc.judgeFour
+let judgeThree=judgeFunc.judgeThree
+let judgePair=judgeFunc.judgePair
+&nbsp;
+// let arr=[]
+&nbsp;
+// //生成随机的7张牌的牌型
+// for(let i=0;i&lt;7;i++){
+//     let num=Math.floor(Math.random()*52)
+//     arr.push({
+//         count:num%13,
+//         suit:parseInt(num/13)
+//     })
+// }
+&nbsp;
+// let lzl1=judgeLevel([{count:1,suit:2},{count:2,suit:0},{count:12,suit:1},{count:12,suit:1},{count:1,suit:3},{count:2,suit:2},{count:12,suit:0}]) 
+// let lzl=0
+&nbsp;
+&nbsp;
+&nbsp;
+//判断牌型
+function judgeLevel(arr){
+&nbsp;
+    //有同花返回{Flush:true,FlushArr:同花的牌的位置构成的数组}；没有同花返回{Flush:false}
+    let suitResult=judgeSuit(arr)
+&nbsp;
+    //判断是否顺子
+    //有顺子，返回{Straight:true,maxNum:顺子最高点数}；没有顺子返回{Straight:false}
+    let sortResult=judgeSort(arr)
+&nbsp;
+    //判断是否有四条
+    //有四条返回{Four:true,count:点数}；没有四条返回{Four:false}
+    let fourResult=judgeFour(arr)
+&nbsp;
+    //判断是否有三条
+    //有三条，返回{Three:true,count:index（哪个点数的三条）} ；没三条 {Three:false}
+    let threeResult=judgeThree(arr)
+&nbsp;
+    //判断是否有两条
+    //有两条，返回数组{Pair:true,pairArr:[](数组长度1到3,从小到大)} ；没有两条，返回{Pair:false}
+    let pairResult=judgePair(arr)
+&nbsp;
+    if(suitResult.Flush&amp;&amp;(!fourResult.Four)){
+        <span class="missing-if-branch" title="else path not taken" >E</span>if(sortResult.Straight){
+            return{
+                Level:8,
+                maxNum:sortResult.maxNum
+            }
+        }else{
+<span class="cstat-no" title="statement not covered" >            if(!(threeResult.Three&amp;&amp;pairResult.Pair)){</span>
+<span class="cstat-no" title="statement not covered" >                let flushCount=[]</span>
+<span class="cstat-no" title="statement not covered" >                suitResult.FlushArr.forEach(<span class="fstat-no" title="function not covered" >function(index){</span></span>
+<span class="cstat-no" title="statement not covered" >                    flushCount.push(arr[index].count)</span>
+                })
+<span class="cstat-no" title="statement not covered" >                flushCount.sort(<span class="fstat-no" title="function not covered" >function(a,b){<span class="cstat-no" title="statement not covered" ></span>return a-b}</span>)</span>
+<span class="cstat-no" title="statement not covered" >                return{</span>
+                    Level:5,
+                    FlushCount:flushCount[flushCount.length-1]
+                }
+            }   
+        }
+    }else{
+        <span class="missing-if-branch" title="if path not taken" >I</span>if(fourResult.Four){
+<span class="cstat-no" title="statement not covered" >            let singleCountArr=[]</span>
+<span class="cstat-no" title="statement not covered" >            arr.forEach(<span class="fstat-no" title="function not covered" >function(obj){</span></span>
+<span class="cstat-no" title="statement not covered" >                if(obj.count!==fourResult.count){</span>
+<span class="cstat-no" title="statement not covered" >                    singleCountArr.push(obj.count)</span>
+                }
+            })
+<span class="cstat-no" title="statement not covered" >            singleCountArr.sort(<span class="fstat-no" title="function not covered" >function(a,b){<span class="cstat-no" title="statement not covered" ></span>return a-b}</span>)</span>
+<span class="cstat-no" title="statement not covered" >            return{</span>
+                Level:7,
+                FourNum:fourResult.count,
+                SingleNum:singleCountArr[singleCountArr.length-1]
+            }
+        }else{ 
+            <span class="missing-if-branch" title="else path not taken" >E</span>if(threeResult.Three&amp;&amp;(!sortResult.Straight)){
+                <span class="missing-if-branch" title="else path not taken" >E</span>if(pairResult.Pair){
+                    let pairCountArr=[]
+                    pairResult.pairArr.forEach(function(num){
+                        if(num!==threeResult.count){
+                            pairCountArr.push(num)
+                        }  
+                    })
+                    pairCountArr.sort(function(a,b){return a-b})
+                    return{
+                        Level:6,
+                        ThreeNum:threeResult.count,
+                        PairNum:pairCountArr[pairCountArr.length-1]
+                    }
+                }else{
+<span class="cstat-no" title="statement not covered" >                    let singleCountArr=[]</span>
+<span class="cstat-no" title="statement not covered" >                    arr.forEach(<span class="fstat-no" title="function not covered" >function(obj){</span></span>
+<span class="cstat-no" title="statement not covered" >                        if(obj.count!==threeResult.count){</span>
+<span class="cstat-no" title="statement not covered" >                            singleCountArr.push(obj.count)</span>
+                        }
+                    })
+<span class="cstat-no" title="statement not covered" >                    singleCountArr.sort(<span class="fstat-no" title="function not covered" >function(a,b){<span class="cstat-no" title="statement not covered" ></span>return a-b}</span>)</span>
+<span class="cstat-no" title="statement not covered" >                    return{</span>
+                        Level:3,
+                        ThreeNum:threeResult.count,
+                        SingleNum:[singleCountArr[singleCountArr.length-1],singleCountArr[singleCountArr.length-2]]
+                    }     
+                }
+            }else{
+<span class="cstat-no" title="statement not covered" >                if(sortResult.Straight){</span>
+<span class="cstat-no" title="statement not covered" >                    return{</span>
+                        Level:4,
+                        maxNum:sortResult.maxNum
+                    }
+                }else{
+<span class="cstat-no" title="statement not covered" >                    if(pairResult.Pair){</span>
+<span class="cstat-no" title="statement not covered" >                        if(pairResult.pairArr.length&gt;=2){</span>
+<span class="cstat-no" title="statement not covered" >                            let singleCountArr=[]</span>
+<span class="cstat-no" title="statement not covered" >                            let PairNum1=pairResult.pairArr[pairResult.pairArr.length-1]</span>
+<span class="cstat-no" title="statement not covered" >                            let PairNum2=pairResult.pairArr[pairResult.pairArr.length-2]</span>
+<span class="cstat-no" title="statement not covered" >                            arr.forEach(<span class="fstat-no" title="function not covered" >function(obj){</span></span>
+<span class="cstat-no" title="statement not covered" >                                if((obj.count!==PairNum1)&amp;&amp;(obj.count!==PairNum2)){</span>
+<span class="cstat-no" title="statement not covered" >                                    singleCountArr.push(obj.count)</span>
+                                }
+                            })
+<span class="cstat-no" title="statement not covered" >                            singleCountArr.sort(<span class="fstat-no" title="function not covered" >function(a,b){<span class="cstat-no" title="statement not covered" ></span>return a-b}</span>)</span>
+<span class="cstat-no" title="statement not covered" >                            return{</span>
+                                Level:2,
+                                PairNum1:PairNum1,
+                                PairNum2:PairNum2,
+                                SingleNum:singleCountArr[singleCountArr.length-1]
+                            }
+                        }else{
+<span class="cstat-no" title="statement not covered" >                            let singleCountArr=[]</span>
+<span class="cstat-no" title="statement not covered" >                            let PairNum=pairResult.pairArr[pairResult.pairArr.length-1]</span>
+<span class="cstat-no" title="statement not covered" >                            arr.forEach(<span class="fstat-no" title="function not covered" >function(obj){</span></span>
+<span class="cstat-no" title="statement not covered" >                                if(obj.count!==PairNum){</span>
+<span class="cstat-no" title="statement not covered" >                                    singleCountArr.push(obj.count)</span>
+                                }
+                            })
+<span class="cstat-no" title="statement not covered" >                            singleCountArr.sort(<span class="fstat-no" title="function not covered" >function(a,b){<span class="cstat-no" title="statement not covered" ></span>return a-b}</span>)</span>
+<span class="cstat-no" title="statement not covered" >                            return{</span>
+                                Level:1,
+                                PairNum:PairNum,
+                                SingleNum1:singleCountArr[singleCountArr.length-1],
+                                SingleNum2:singleCountArr[singleCountArr.length-2],
+                                SingleNum3:singleCountArr[singleCountArr.length-3]
+                            }
+                        }
+                    }else{
+<span class="cstat-no" title="statement not covered" >                        let singleCountArr=[]</span>
+<span class="cstat-no" title="statement not covered" >                        arr.forEach(<span class="fstat-no" title="function not covered" >function(obj){</span></span>
+<span class="cstat-no" title="statement not covered" >                            singleCountArr.push(obj.count)</span>
+                        })
+<span class="cstat-no" title="statement not covered" >                        singleCountArr.sort(<span class="fstat-no" title="function not covered" >function(a,b){<span class="cstat-no" title="statement not covered" ></span>return a-b}</span>)</span>
+<span class="cstat-no" title="statement not covered" >                        return{</span>
+                            Level:0,
+                            SingleNum1:singleCountArr[singleCountArr.length-1],
+                            SingleNum2:singleCountArr[singleCountArr.length-2],
+                            SingleNum3:singleCountArr[singleCountArr.length-3],
+                            SingleNum4:singleCountArr[singleCountArr.length-4],
+                            SingleNum5:singleCountArr[singleCountArr.length-5],
+                        }
+                    }
+                }
+                    
+            }
+        }
+    }
+}
+&nbsp;
+module.exports=judgeLevel
+&nbsp;
+&nbsp;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Dec 08 2017 23:34:17 GMT+0800 (中国标准时间)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

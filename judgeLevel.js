@@ -1,4 +1,28 @@
 
+const judgeFunc=require('./judge')
+
+let judgeSuit=judgeFunc.judgeSuit
+let judgeSort=judgeFunc.judgeSort
+let judgeFour=judgeFunc.judgeFour
+let judgeThree=judgeFunc.judgeThree
+let judgePair=judgeFunc.judgePair
+
+// let arr=[]
+
+// //生成随机的7张牌的牌型
+// for(let i=0;i<7;i++){
+//     let num=Math.floor(Math.random()*52)
+//     arr.push({
+//         count:num%13,
+//         suit:parseInt(num/13)
+//     })
+// }
+
+// let lzl1=judgeLevel([{count:1,suit:2},{count:2,suit:0},{count:12,suit:1},{count:12,suit:1},{count:1,suit:3},{count:2,suit:2},{count:12,suit:0}]) 
+// let lzl=0
+
+
+
 //判断牌型
 function judgeLevel(arr){
 
@@ -58,8 +82,10 @@ function judgeLevel(arr){
             if(threeResult.Three&&(!sortResult.Straight)){
                 if(pairResult.Pair){
                     let pairCountArr=[]
-                    pairResult.pairArr.forEach(function(obj){
-                        pairCountArr.push(obj.count)
+                    pairResult.pairArr.forEach(function(num){
+                        if(num!==threeResult.count){
+                            pairCountArr.push(num)
+                        }  
                     })
                     pairCountArr.sort(function(a,b){return a-b})
                     return{
@@ -145,3 +171,5 @@ function judgeLevel(arr){
 }
 
 module.exports=judgeLevel
+
+

@@ -37,10 +37,14 @@ describe('同花，Level=5', function() {
   });
 });
 describe('三条，Level=3', function() {
-  //asdsadsad
+  it('0三条', function() {
+    expect(judgeLevel([{count:0,suit:1},{count:0,suit:0},{count:11,suit:0},{count:7,suit:1},{count:8,suit:3},{count:2,suit:2},{count:0,suit:3}])).to.be.deep.equal({Level:3,ThreeNum:0,SingleNum:[11,8]});
+  });
 });
 describe('两对，Level=2', function() {
-  
+  it('2一对3一对', function() {
+    expect(judgeLevel([{count:0,suit:1},{count:0,suit:0},{count:11,suit:0},{count:7,suit:1},{count:1,suit:3},{count:1,suit:2},{count:9,suit:3}])).to.be.deep.equal({Level:2,PairNum1:3,PairNum2:2,SingleNum:11});
+  });
 });
 describe('一对，Level=1', function() {
   

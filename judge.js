@@ -15,7 +15,7 @@ function judgePair(arr){
         countNum[n]+=1
     })
     let result=countNum.map(function(num,index){
-        if(num>=2){
+        if(num===2){
             return {
                 Pair:true,  //是否有三条
                 count:index //哪个点数的三条
@@ -61,7 +61,7 @@ function judgeThree(arr){
         countNum[n]+=1
     })
     let result=countNum.map(function(num,index){
-        if(num>=3){
+        if(num===3){
             return {
                 Three:true,  //是否有三条
                 count:index //哪个点数的三条
@@ -100,7 +100,7 @@ function judgeFour(arr){
         countNum[n]+=1
     })
     let result=countNum.map(function(num,index){
-        if(num>=4){
+        if(num===4){
             return {
                 Four:true,  //是否有四条
                 count:index //哪个点数的四条
@@ -193,11 +193,28 @@ function judgeSort(arr){
             maxNum:maxNum
         }
     }else{
-        return{
-            Straight:false
-        }
+        if(contains(tempArr,0)&&contains(tempArr,1)&&contains(tempArr,2)&&contains(tempArr,3)&&contains(tempArr,12)){
+            return{
+                Straight:true,
+                maxNum:3
+            }
+        }else{
+            return{
+                Straight:false
+            }
+        }   
     }
 }
+
+function contains(arr, obj) {  
+    var i = arr.length;  
+    while (i--) {  
+        if (arr[i] === obj) {  
+            return true;  
+        }  
+    }  
+    return false;  
+}  
 
 exports.judgePair=judgePair
 exports.judgeThree=judgeThree

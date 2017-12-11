@@ -1,4 +1,4 @@
-//这是判别牌型测试版
+//这是判别牌型正式版
 const judgeFunc=require('./judge')
 
 let judgeSuit=judgeFunc.judgeSuit
@@ -18,7 +18,7 @@ let judgePair=judgeFunc.judgePair
 //     })
 // }
 
-let lzl1=judgeLevel([{count:1,suit:0},{count:2,suit:0},{count:3,suit:0},{count:7,suit:1},{count:7,suit:3},{count:7,suit:0},{count:5,suit:0}]) 
+let lzl1=judgeLevel([{count:1,suit:0},{count:2,suit:0},{count:3,suit:0},{count:0,suit:1},{count:12,suit:3},{count:7,suit:2},{count:5,suit:1}]) 
 let lzl=0
 
 
@@ -49,7 +49,7 @@ function judgeLevel(arr){
         if(sortResult.Straight){
             return{
                 Level:8,
-                maxNum:sortResult.maxNum
+                Num:sortResult.maxNum
             }
         }else{
             if(!(threeResult.Three&&pairResult.Pair)){
@@ -60,7 +60,7 @@ function judgeLevel(arr){
                 flushCount.sort(function(a,b){return a-b})
                 return{
                     Level:5,
-                    maxNum:flushCount[flushCount.length-1]
+                    Num:flushCount[flushCount.length-1]
                 }
             }   
         }
@@ -75,8 +75,7 @@ function judgeLevel(arr){
             singleCountArr.sort(function(a,b){return a-b})
             return{
                 Level:7,
-                FourNum:fourResult.count,
-                SingleNum:singleCountArr[singleCountArr.length-1]
+                Num:[fourResult.count,singleCountArr[singleCountArr.length-1]]
             }
         }else{ 
             if(threeResult.Three&&(!sortResult.Straight)){
@@ -90,8 +89,7 @@ function judgeLevel(arr){
                     pairCountArr.sort(function(a,b){return a-b})
                     return{
                         Level:6,
-                        ThreeNum:threeResult.count,
-                        PairNum:pairCountArr[pairCountArr.length-1]
+                        Num:[threeResult.count,pairCountArr[pairCountArr.length-1]]
                     }
                 }else{
                     let singleCountArr=[]
@@ -103,15 +101,14 @@ function judgeLevel(arr){
                     singleCountArr.sort(function(a,b){return a-b})
                     return{
                         Level:3,
-                        ThreeNum:threeResult.count,
-                        SingleNum1:singleCountArr[singleCountArr.length-1],SingleNum2:singleCountArr[singleCountArr.length-2]
+                        Num:[threeResult.count,singleCountArr[singleCountArr.length-1],singleCountArr[singleCountArr.length-2]]
                     }     
                 }
             }else{
                 if(sortResult.Straight){
                     return{
                         Level:4,
-                        maxNum:sortResult.maxNum
+                        Num:sortResult.maxNum
                     }
                 }else{
                     if(pairResult.Pair){
@@ -127,9 +124,7 @@ function judgeLevel(arr){
                             singleCountArr.sort(function(a,b){return a-b})
                             return{
                                 Level:2,
-                                PairNum1:PairNum1,
-                                PairNum2:PairNum2,
-                                SingleNum:singleCountArr[singleCountArr.length-1]
+                                Num:[PairNum1,PairNum2,singleCountArr[singleCountArr.length-1]]
                             }
                         }else{
                             let singleCountArr=[]
@@ -142,10 +137,7 @@ function judgeLevel(arr){
                             singleCountArr.sort(function(a,b){return a-b})
                             return{
                                 Level:1,
-                                PairNum:PairNum,
-                                SingleNum1:singleCountArr[singleCountArr.length-1],
-                                SingleNum2:singleCountArr[singleCountArr.length-2],
-                                SingleNum3:singleCountArr[singleCountArr.length-3]
+                                Num:[PairNum,singleCountArr[singleCountArr.length-1],singleCountArr[singleCountArr.length-2],singleCountArr[singleCountArr.length-3]]
                             }
                         }
                     }else{
@@ -156,11 +148,7 @@ function judgeLevel(arr){
                         singleCountArr.sort(function(a,b){return a-b})
                         return{
                             Level:0,
-                            SingleNum1:singleCountArr[singleCountArr.length-1],
-                            SingleNum2:singleCountArr[singleCountArr.length-2],
-                            SingleNum3:singleCountArr[singleCountArr.length-3],
-                            SingleNum4:singleCountArr[singleCountArr.length-4],
-                            SingleNum5:singleCountArr[singleCountArr.length-5],
+                            Num:[singleCountArr[singleCountArr.length-1],singleCountArr[singleCountArr.length-2],singleCountArr[singleCountArr.length-3],singleCountArr[singleCountArr.length-4],singleCountArr[singleCountArr.length-5]]
                         }
                     }
                 }
